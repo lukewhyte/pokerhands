@@ -3,13 +3,33 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> </title>
+    <title>One million poker hands</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-      
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <style>
+      body { background: #ffff7f; }
+      main {
+        width: 80%;
+        margin: 100px auto 0;
+        font-size: 5em;
+        font-family: 'Bangers', cursive;
+        text-align: center;
+      }
+      div.loading {
+        font-size: 5em;
+        font-family: 'Bangers', cursive;
+        width: 80%;
+        margin: 10px auto 0;
+        text-align: center;
+      }
+      ol.list { display: none; }
+    </style>
   </head>
   <body>
-    <ul class="list"></ul>
+    <main>Let's play poker! ...but not really.</main>
+    <div class="loading"></div>
+    <ol class="list"></ol>
 
     <script src="build/deal.js"></script>
   </body>

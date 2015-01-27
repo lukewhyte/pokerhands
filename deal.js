@@ -3,29 +3,33 @@ var deck = require('./deck.js'),
   Evaluate = require('./evaluate'),
   $ = require('jquery');
 
-var dealHands = function dealHands ($loading) {
+var $loading = $('div.loading'),
+  i = 0;
+
+var dealHands = function dealHands () {
   var toDom = '',
-    hand, i = 0, j = 0;
+    hand, j = 0;
 
-  for (; i < 100; i++) {
-    toDom = '';
-    j = 0;
-
-    while (j < 10000) {
-      shuffle(deck);
-      hand = new Evaluate(deck.slice(0,5));
-      toDom += '<li>' + hand.handToString + ': ' + hand.result + '</li>';
-      j++;
-    }
-
-    $loading.html((i + 1) + '%');
+  while (j < 10000) {
+    console.log(j);
+    shuffle(deck);
+    hand = new Evaluate(deck.slice(0,5));
+    toDom += '<li>' + hand.handToString + ': ' + hand.result + '</li>';
+    j++;
   }
+
+  $loading.html(++i + '%');
+  return toDom;
 };
 
 $(function () {
   var $list = $('ol.list'),
     $loading = $('div.loading'),
-    output = dealHands($loading);
+    output = dealHands();
+
+  while (i < 2) {
+    output += dealHands();
+  }
 
   $loading.hide();
   $list.append(output).show();
